@@ -28,9 +28,9 @@ pip install -r requirements.txt
 which will install all of the required packages.
 
 **Key Dependencies:**
-    - Flask - required to handle requests and responses.
-    - SQLAlchemy - The ORM used to handle the lightweight sqlite database. 
-    - Flask-CORS - used to handle cross origin requests from our frontend server.
+- Flask: required to handle requests and responses.
+- SQLAlchemy: The ORM used to handle the lightweight sqlite database. 
+- Flask-CORS: used to handle cross origin requests from our frontend server.
 
 ## Database Setup...?
 
