@@ -81,7 +81,8 @@ flask run
 - Request Arguments: None
 - Returns: An object containing the actors and success value.
 - Sample: curl http://127.0.0.1:5000/actors
-```{
+```
+{
     "actors": [
         {
             "age": 39,
@@ -97,7 +98,8 @@ flask run
         }
     ],
     "success": true
-}```
+}
+```
 
 **GET '/movies'**
 - Fetches a list of movies as an array of objects.
@@ -105,7 +107,8 @@ flask run
 - Request Arguments: None
 - Returns: An object containing the movies and success value.
 - Sample: curl http://127.0.0.1:5000/movies
-```{
+```
+{
     "movies": [
         {
             "id": 1,
@@ -119,7 +122,8 @@ flask run
         }
     ],
     "success": true
-}```
+}
+```
 
 **POST '/actors'**
 - Posts a new actor to the database. It requires the name, age and gender 
@@ -128,7 +132,8 @@ for the actor.
 - Returns: An object containing the actors (including the recently added 
 actor) and success value.
 - Sample: curl -X POST -H "Content-Type: application/json" -d '{"name":"John Smith","age":31,"gender":"Male"}' http://127.0.0.1:5000/actors
-```{
+```
+{
     "actors": [
         {
             "age": 39,
@@ -150,7 +155,8 @@ actor) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 **POST '/movies'**
 - Posts a new movie to the database. It requires the title and release_date
@@ -159,7 +165,8 @@ for the movie.
 - Returns: An object containing the movies (including the recently added 
 movie) and success value.
 - Sample: curl -X POST -H "Content-Type: application/json" -d '{"title":"New Movie","release_date":"1st January 2021"}' http://127.0.0.1:5000/movies
-```{
+```
+{
     "movies": [
         {
             "id": 1,
@@ -178,7 +185,8 @@ movie) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 **PATCH '/actors'**
 - Updates an existing actor entry with the corresponding id in the database.
@@ -186,7 +194,8 @@ movie) and success value.
 - Returns: An object containing the actors (showing the newly updated 
 actor) and success value.
 - Sample: curl -X PATCH -H "Content-Type: application/json" -d '{"age":34}' http://127.0.0.1:5000/actors/3
-```{
+```
+{
     "actors": [
         {
             "age": 39,
@@ -208,7 +217,8 @@ actor) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 **PATCH '/movies'**
 - Updates an existing movie entry with the corresponding id in the database.
@@ -216,7 +226,8 @@ actor) and success value.
 - Returns: An object containing the movies (showing the newly updated 
 movie) and success value.
 - Sample: curl -X PATCH -H "Content-Type: application/json" -d '{"release_date":"31st February 2020"}' http://127.0.0.1:5000/movies/3
-```{
+```
+{
     "movies": [
         {
             "id": 1,
@@ -235,7 +246,8 @@ movie) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 **DELETE '/actors'**
 - Deletes an existing actor entry with the corresponding id in the database.
@@ -243,7 +255,8 @@ movie) and success value.
 - Returns: An object containing the actors (the actor with the corresponding
 id will no longer appear) and success value.
 - Sample: curl -X DELETE http://127.0.0.1:5000/actors/2
-```{
+```
+{
     "actors": [
         {
             "age": 39,
@@ -259,7 +272,8 @@ id will no longer appear) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 **DELETE '/movies'**
 - Deletes an existing movie entry with the corresponding id in the database.
@@ -267,7 +281,8 @@ id will no longer appear) and success value.
 - Returns: An object containing the movies (the movie with the corresponding
 id will no longer appear) and success value.
 - Sample: curl -X DELETE http://127.0.0.1:5000/movies/2
-```{
+```
+{
     "movies": [
         {
             "id": 1,
@@ -281,6 +296,7 @@ id will no longer appear) and success value.
         }
     ],
     "success": true
-}```
+}
+```
 
 ## Testing 
