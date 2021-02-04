@@ -44,16 +44,16 @@ flask run
         -- 405: Method not allowed
         -- 422: Not processable
 - The response for all errors will be in the following format:
-{
+'''{
   "error": "404",
   "message": "Resource not found",
   "success": false
-}
+}'''
 
 ## Endpoints 
-GET '/actors'
-GET '/movies'
-POST '/actors'
+* GET '/actors'
+* GET '/movies'
+* POST '/actors'
 POST '/movies'
 PATCH '/actors/<id>'
 PATCH '/movies/<id>'
