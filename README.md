@@ -8,15 +8,23 @@ Follow instructions to install the latest version of python on your platform in 
 
 ## Virtual Environment
 We recommend using a virtual environment whenever using Python projects. To set up your virtual environment run:
-```python -m virtualenv```
+```
+python -m virtualenv
+```
 For windows:
-```source env/Scripts/activate``` 
+```
+source env/Scripts/activate
+``` 
 For mac:
-```source env/bin/activate```
+```
+source env/bin/activate
+```
 
 ## Pip Dependencies
 Once you have your virtual environment set up, install the dependencies by running 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 which will install all of the required packages.
 
 **Key Dependencies:**
@@ -33,9 +41,11 @@ source setup.sh
 ## Running the Server
 From within your current directory which contains the app.py file, to run the server and use developer mode
 execute:
-```export FLASK_APP=app.py
+```
+export FLASK_APP=app.py
 export FLASK_ENV=development
-flask run```
+flask run
+```
 
 ## API Reference
 
