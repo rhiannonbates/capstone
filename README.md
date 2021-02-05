@@ -3,10 +3,6 @@ This API has been created to show my understanding in all of the topics that I h
 
 The Casting Agency company asked for an API to be created so that they can easily create and manage movies and actors on their database. The API will allow certain roles to perform various activites such as getting a list of the movies and actors, as well as adding new ones, updating current ones and deleting movies and actors from the data base. During each of these activities, the use must have the correct permissions to be able to carry out that activity.
 
-@TODO: Need to add:
-Info hosting instructions 
-Instruction for setting up authentication so reviewers can test endpoints at live application endpoint
-
 ## Getting Started 
 Installing Dependencies
 
@@ -61,9 +57,9 @@ export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
 ```
-@TODO
+
 ## API Reference
-The base URL is: 
+The base URL is: https://capstone-castingagency-bates.herokuapp.com/ 
 
 ## Error Handling 
 - Errors are returned as JSON objects.
@@ -97,7 +93,7 @@ The base URL is:
 - Requires the 'get:actors' permission
 - Request Arguments: bearer token
 - Returns: An object containing the actors and success value.
-- Sample: curl http://127.0.0.1:5000/actors -H 'Authorization: Bearer <Token>'
+- Sample: curl https://capstone-castingagency-bates.herokuapp.com/actors -H 'Authorization: Bearer <Token>'
 ```
 {
     "actors": [
@@ -124,7 +120,7 @@ The base URL is:
 - Requires the 'get:movies' permission
 - Request Arguments: bearer token
 - Returns: An object containing the movies and success value.
-- Sample: curl http://127.0.0.1:5000/movies -H "Authorization: Bearer <Token>"
+- Sample: curl https://capstone-castingagency-bates.herokuapp.com/movies -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
@@ -150,7 +146,7 @@ for the actor.
 - Request Arguments: name, age, gender, bearer token
 - Returns: An object containing the actors (including the recently added 
 actor) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"name":"John Smith","age":31,"gender":"Male"}' http://127.0.0.1:5000/actors  
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"name":"John Smith","age":31,"gender":"Male"}' https://capstone-castingagency-bates.herokuapp.com/actors  
 ```
 {
     "actors": [
@@ -184,7 +180,7 @@ for the movie.
 - Request Arguments: title, release_date, bearer token
 - Returns: An object containing the movies (including the recently added 
 movie) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"title":"New Movie","release_date":"1st January 2021"}' http://127.0.0.1:5000/movies
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"title":"New Movie","release_date":"1st January 2021"}' https://capstone-castingagency-bates.herokuapp.com/movies
 ```
 {
     "movies": [
@@ -214,7 +210,7 @@ movie) and success value.
 - Request Arguments: id, bearer token, and one or more of: name, age and gender
 - Returns: An object containing the actors (showing the newly updated 
 actor) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"age":34}' http://127.0.0.1:5000/actors/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"age":34}' https://capstone-castingagency-bates.herokuapp.com/actors/3
 ```
 {
     "actors": [
@@ -247,7 +243,7 @@ actor) and success value.
 - Request Arguments: id, bearer token, and one or more of: title and release date
 - Returns: An object containing the movies (showing the newly updated 
 movie) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"release_date":"31st February 2020"}' http://127.0.0.1:5000/movies/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"release_date":"31st February 2020"}' https://capstone-castingagency-bates.herokuapp.com/movies/3
 ```
 {
     "movies": [
@@ -277,7 +273,7 @@ movie) and success value.
 - Request Arguments: id, bearer token
 - Returns: An object containing the actors (the actor with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE http://127.0.0.1:5000/actors/2 -H "Authorization: Bearer <Token>"
+- Sample: curl -X DELETE https://capstone-castingagency-bates.herokuapp.com/actors/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "actors": [
@@ -304,7 +300,7 @@ id will no longer appear) and success value.
 - Request Arguments: id, bearer token
 - Returns: An object containing the movies (the movie with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE http://127.0.0.1:5000/movies/2 -H "Authorization: Bearer <Token>"
+- Sample: curl -X DELETE https://capstone-castingagency-bates.herokuapp.com/movies/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
