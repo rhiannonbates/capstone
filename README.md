@@ -1,4 +1,11 @@
-# Casting Agency API 
+# Casting Agency API - Final Project
+This API has been created to show my understanding in all of the topics that I have learnt while undertaking the Full Stack Web Development course through Udacity.
+
+The Casting Agency company asked for an API to be created so that they can easily create and manage movies and actors on their database. The API will allow certain roles to perform various activites such as getting a list of the movies and actors, as well as adding new ones, updating current ones and deleting movies and actors from the data base. During each of these activities, the use must have the correct permissions to be able to carry out that activity.
+
+@TODO: Need to add:
+Info hosting instructions 
+Instruction for setting up authentication so reviewers can test endpoints at live application endpoint
 
 ## Getting Started 
 Installing Dependencies
@@ -32,13 +39,21 @@ which will install all of the required packages.
 - SQLAlchemy: The ORM used to handle the lightweight sqlite database. 
 - Flask-CORS: used to handle cross origin requests from our frontend server.
 
-## Database Setup...?
+## Database Setup
+Create a new database in Postgres
+```
+createdb castingagency
+```
+With Postgres running, restore a database using the capstone.psql file provided by running:
+```
+psql castingagency < postgres.psql
+```
 
 ## Setup of Variables
 To set up your variables defined in your setup.sh, run as a source:
 source setup.sh 
 
-## Running the Server
+## Running the Server Locally
 From within your current directory which contains the app.py file, to run the server and use developer mode
 execute:
 ```
@@ -46,8 +61,9 @@ export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
 ```
-
+@TODO
 ## API Reference
+The base URL is: 
 
 ## Error Handling 
 - Errors are returned as JSON objects.
@@ -65,7 +81,7 @@ flask run
 }
 ```
 
-## Endpoints 
+## API Endpoints 
 - GET '/actors'
 - GET '/movies'
 - POST '/actors'
@@ -78,9 +94,10 @@ flask run
 **GET '/actors'**
 - Fetches a list of actors as an array of objects.
 - Each object contains the information for an actor (name, age and gender).
-- Request Arguments: None
+- Requires the 'get:actors' permission
+- Request Arguments: bearer token
 - Returns: An object containing the actors and success value.
-- Sample: curl http://127.0.0.1:5000/actors
+- Sample: curl http://127.0.0.1:5000/actors -H 'Authorization: Bearer <Token>'
 ```
 {
     "actors": [
@@ -104,9 +121,10 @@ flask run
 **GET '/movies'**
 - Fetches a list of movies as an array of objects.
 - Each object contains the information for a movie (title and release_date).
-- Request Arguments: None
+- Requires the 'get:movies' permission
+- Request Arguments: bearer token
 - Returns: An object containing the movies and success value.
-- Sample: curl http://127.0.0.1:5000/movies
+- Sample: curl http://127.0.0.1:5000/movies -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
@@ -128,10 +146,11 @@ flask run
 **POST '/actors'**
 - Posts a new actor to the database. It requires the name, age and gender 
 for the actor. 
-- Request Arguments: name, age, gender
+- Requires the 'post:actors' permission
+- Request Arguments: name, age, gender, bearer token
 - Returns: An object containing the actors (including the recently added 
 actor) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -d '{"name":"John Smith","age":31,"gender":"Male"}' http://127.0.0.1:5000/actors
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"name":"John Smith","age":31,"gender":"Male"}' http://127.0.0.1:5000/actors  
 ```
 {
     "actors": [
@@ -161,10 +180,11 @@ actor) and success value.
 **POST '/movies'**
 - Posts a new movie to the database. It requires the title and release_date
 for the movie. 
-- Request Arguments: title, release_date
+- Requires the 'post:movies' permission
+- Request Arguments: title, release_date, bearer token
 - Returns: An object containing the movies (including the recently added 
 movie) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -d '{"title":"New Movie","release_date":"1st January 2021"}' http://127.0.0.1:5000/movies
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"title":"New Movie","release_date":"1st January 2021"}' http://127.0.0.1:5000/movies
 ```
 {
     "movies": [
@@ -190,10 +210,11 @@ movie) and success value.
 
 **PATCH '/actors'**
 - Updates an existing actor entry with the corresponding id in the database.
-- Request Arguments: id, one or more of: name, age and gender
+- Requires the 'patch:actors' permission
+- Request Arguments: id, bearer token, and one or more of: name, age and gender
 - Returns: An object containing the actors (showing the newly updated 
 actor) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -d '{"age":34}' http://127.0.0.1:5000/actors/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"age":34}' http://127.0.0.1:5000/actors/3
 ```
 {
     "actors": [
@@ -222,10 +243,11 @@ actor) and success value.
 
 **PATCH '/movies'**
 - Updates an existing movie entry with the corresponding id in the database.
-- Request Arguments: id, one or more of: title and release date
+- Requires the 'patch:movies' permission
+- Request Arguments: id, bearer token, and one or more of: title and release date
 - Returns: An object containing the movies (showing the newly updated 
 movie) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -d '{"release_date":"31st February 2020"}' http://127.0.0.1:5000/movies/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"release_date":"31st February 2020"}' http://127.0.0.1:5000/movies/3
 ```
 {
     "movies": [
@@ -251,10 +273,11 @@ movie) and success value.
 
 **DELETE '/actors'**
 - Deletes an existing actor entry with the corresponding id in the database.
-- Request Arguments: id
+- Requires the 'delete:actors' permission
+- Request Arguments: id, bearer token
 - Returns: An object containing the actors (the actor with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE http://127.0.0.1:5000/actors/2
+- Sample: curl -X DELETE http://127.0.0.1:5000/actors/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "actors": [
@@ -277,10 +300,11 @@ id will no longer appear) and success value.
 
 **DELETE '/movies'**
 - Deletes an existing movie entry with the corresponding id in the database.
-- Request Arguments: id
+- Requires the 'delete:movies' permission
+- Request Arguments: id, bearer token
 - Returns: An object containing the movies (the movie with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE http://127.0.0.1:5000/movies/2
+- Sample: curl -X DELETE http://127.0.0.1:5000/movies/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
@@ -300,3 +324,33 @@ id will no longer appear) and success value.
 ```
 
 ## Testing 
+To run the tests, run 
+```
+dropdb castingagencytest
+createdb castingagencytest
+psql castingagencytest < capstone.psql
+python test_app.py
+```
+
+## Permissions
+- get:actors -> Get access to the list of actors 
+- get: movies -> Get access to the list of movies  
+- post:actors -> Add a new actor
+- post:movies -> Add a new movie
+- patch:actor -> Update an actor
+- patch:movie -> Update a movie
+- delete:actor -> Delete an actor
+- delete:movie -> Delete a movie
+
+## Roles
+- Casting Assistant
+    - Can view actors and movies
+- Casting Director 
+    - Can view actors and movies
+    - Add or delete an actor from the database
+    - Update actors or movies
+- Executive Producer
+    - Can view actors and movies
+    - Add or delete an actor from the database
+    - Update actors or movies
+    - Add or delete a movie from the database
