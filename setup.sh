@@ -1,4 +1,5 @@
 export DATABASE_URL='postgres://cknyewrrrikauk:dda6ac5dc7095ac534852ec96618964f30692d4ebfbf264f579c9aaea9e4f5ac@ec2-54-225-190-241.compute-1.amazonaws.com:5432/ddaia0anmpfnq5'
+# export DATABASE_URL_TEST='postgres://postgres:test@localhost:5432/castingagency'
 export DATABASE_URL_TEST='postgres://postgres:test@localhost:5432/castingagencytest'
 export AUTH0_DOMAIN='fsnd-bates.eu.auth0.com'
 export ALGORITHMS=['RS256']
