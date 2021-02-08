@@ -26,7 +26,7 @@ source env/bin/activate
 ## Pip Dependencies
 Once you have your virtual environment set up, install the dependencies by running 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 which will install all of the required packages.
 

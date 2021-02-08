@@ -42,6 +42,15 @@ def create_app(test_config=None):
         return movies
 
     '''
+    Get /
+        Get initial page to ensure the api is working
+    '''
+
+    @app.route('/')
+    def main():
+        return jsonify({'message': 'Welcome to Casting Agency API'})
+
+    '''
     GET /actors
         Requires 'get:actors' permission
         Returns status code 200 and json {'success': true, 'actors': actors}
@@ -94,9 +103,9 @@ def create_app(test_config=None):
     @requires_auth('post:actors')
     def add_actor(payload, *args, **kwargs):
         body = request.get_json()
-        name = body.get('name', None)
-        age = body.get('age', None)
-        gender = body.get('gender', None)
+        name = body.get('name')
+        age = body.get('age')
+        gender = body.get('gender')
         try:
             new_actor = Actors(name=name, age=age, gender=gender)
             new_actor.insert()
@@ -122,8 +131,8 @@ def create_app(test_config=None):
     @requires_auth('post:movies')
     def add_movie(payload, *args, **kwargs):
         body = request.get_json()
-        title = body.get('title', None)
-        release_date = body.get('release_date', None)
+        title = body.get('title')
+        release_date = body.get('release_date')
         try:
             new_movie = Movies(title=title, release_date=release_date)
             new_movie.insert()
