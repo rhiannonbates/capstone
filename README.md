@@ -59,7 +59,7 @@ flask run
 ```
 
 ## API Reference
-The base URL is: https://capstone-castingagency-bates.herokuapp.com/ 
+The base URL is: https://capstone-bates.herokuapp.com/ 
 
 ## Error Handling 
 - Errors are returned as JSON objects.
@@ -93,7 +93,7 @@ The base URL is: https://capstone-castingagency-bates.herokuapp.com/
 - Requires the 'get:actors' permission
 - Request Arguments: bearer token
 - Returns: An object containing the actors and success value.
-- Sample: curl https://capstone-castingagency-bates.herokuapp.com/actors -H 'Authorization: Bearer <Token>'
+- Sample: curl https://capstone-bates.herokuapp.com/actors -H 'Authorization: Bearer <Token>'
 ```
 {
     "actors": [
@@ -120,7 +120,7 @@ The base URL is: https://capstone-castingagency-bates.herokuapp.com/
 - Requires the 'get:movies' permission
 - Request Arguments: bearer token
 - Returns: An object containing the movies and success value.
-- Sample: curl https://capstone-castingagency-bates.herokuapp.com/movies -H "Authorization: Bearer <Token>"
+- Sample: curl https://capstone-bates.herokuapp.com/movies -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
@@ -146,7 +146,7 @@ for the actor.
 - Request Arguments: name, age, gender, bearer token
 - Returns: An object containing the actors (including the recently added 
 actor) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"name":"John Smith","age":31,"gender":"Male"}' https://capstone-castingagency-bates.herokuapp.com/actors  
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"name":"John Smith","age":31,"gender":"Male"}' https://capstone-bates.herokuapp.com/actors  
 ```
 {
     "actors": [
@@ -180,7 +180,7 @@ for the movie.
 - Request Arguments: title, release_date, bearer token
 - Returns: An object containing the movies (including the recently added 
 movie) and success value.
-- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"title":"New Movie","release_date":"1st January 2021"}' https://capstone-castingagency-bates.herokuapp.com/movies
+- Sample: curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"title":"New Movie","release_date":"1st January 2021"}' https://capstone-bates.herokuapp.com/movies
 ```
 {
     "movies": [
@@ -210,7 +210,7 @@ movie) and success value.
 - Request Arguments: id, bearer token, and one or more of: name, age and gender
 - Returns: An object containing the actors (showing the newly updated 
 actor) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"age":34}' https://capstone-castingagency-bates.herokuapp.com/actors/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"age":34}' https://capstone-bates.herokuapp.com/actors/3
 ```
 {
     "actors": [
@@ -243,7 +243,7 @@ actor) and success value.
 - Request Arguments: id, bearer token, and one or more of: title and release date
 - Returns: An object containing the movies (showing the newly updated 
 movie) and success value.
-- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"release_date":"31st February 2020"}' https://capstone-castingagency-bates.herokuapp.com/movies/3
+- Sample: curl -X PATCH -H "Content-Type: application/json" -H "Authorization: Bearer <Token>" -d '{"release_date":"31st February 2020"}' https://capstone-bates.herokuapp.com/movies/3
 ```
 {
     "movies": [
@@ -273,7 +273,7 @@ movie) and success value.
 - Request Arguments: id, bearer token
 - Returns: An object containing the actors (the actor with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE https://capstone-castingagency-bates.herokuapp.com/actors/2 -H "Authorization: Bearer <Token>"
+- Sample: curl -X DELETE https://capstone-bates.herokuapp.com/actors/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "actors": [
@@ -300,7 +300,7 @@ id will no longer appear) and success value.
 - Request Arguments: id, bearer token
 - Returns: An object containing the movies (the movie with the corresponding
 id will no longer appear) and success value.
-- Sample: curl -X DELETE https://capstone-castingagency-bates.herokuapp.com/movies/2 -H "Authorization: Bearer <Token>"
+- Sample: curl -X DELETE https://capstone-bates.herokuapp.com/movies/2 -H "Authorization: Bearer <Token>"
 ```
 {
     "movies": [
@@ -319,7 +319,7 @@ id will no longer appear) and success value.
 }
 ```
 
-## Testing 
+## Testing locally
 To run the tests, run 
 ```
 dropdb castingagencytest
@@ -327,6 +327,14 @@ createdb castingagencytest
 psql castingagencytest < capstone.psql
 python test_app.py
 ```
+
+## Testing Heroku endpoints on Postman
+Import the collection ```./CapstoneProject.postman_collection.json``` and run the collection. 
+
+## Authorization Tokens
+ASSISTANT = 'bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNUTS14U1BlZ1ZqT2paZTREdXBoSiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtYmF0ZXMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMWFiZWM4MGQzY2UyMDA3MDRlNTcxYyIsImF1ZCI6ImNhc3RpbmdBZ2VuY3lBUEkiLCJpYXQiOjE2MTI3NzkzNDQsImV4cCI6MTYxMjc4NjU0NCwiYXpwIjoid3NjUW1PTzVta1A5dWFubVdrV1lvY0h3MWtQWkNjY3EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.JWjjD3NxLlVNL4HPG0KMwUGQIQL_HsHnkduCj0fy7FzDpr96SI4P1RQCFCp5afeUrUCGpEqo_H1zzpbeFje-Mayl0_ZgJcBP-LI5cvdcdc3OdfHncdUbis1s06YnI6ZDa98szs47B4kzVwbyTadGLJ_m5WiqtJGPSGH_r9gaS8_Az3O2tZrZq6IyBqymgerE0cF4po7WE7FbyviT-tMgqyccxcSLzF5hXYT1iIoC_uKl1TBasWnbwDWZmx3nBvM_1HxAb7J7kEEpzE1Zzdyl65rQOkzqO0Z7H8_73ga6cREDCorE3rZsbsVocoMjWaonhzIj6lz-YCQKJSNb9g1vyA'
+DIRECTOR = 'bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNUTS14U1BlZ1ZqT2paZTREdXBoSiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtYmF0ZXMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDYwMWFiZWViYjEyZmMzMDA2ODNmYTc4ZCIsImF1ZCI6ImNhc3RpbmdBZ2VuY3lBUEkiLCJpYXQiOjE2MTI3NzkyODksImV4cCI6MTYxMjc4NjQ4OSwiYXpwIjoid3NjUW1PTzVta1A5dWFubVdrV1lvY0h3MWtQWkNjY3EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvciIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3IiLCJwYXRjaDptb3ZpZSIsInBvc3Q6YWN0b3JzIl19.TZmeZ5HQ_uCm6ZY-RlpRehr_lsfbIjZeHsi-kCHpxiYMaxT3SKzj115E9NAj8gxTeht36E0pvYWtbNM2QMNc8AhnC166Q1vmWWmDQFmTJhv7RaPi190wTz82_L__thIMRYy-TFoTyJ4M3SqbYp-HWlOAWvyjClRDMtGg453ZYbEcBnePw3As3o6os19oh8TaQ7SMJ8aa8rvZkZQQC_lSDDpOmJQtoaUWXOs3W5EmXrMBCE5w7s6eo4jtb0fK7AwXUd8pQzbLj8X-2Ux3sypEKWkuX4cUhKWX30lI7fz8EQt0w0mM6hcyLoP3l28LvJorFNbHQ3G9H_LEBGw754Cwbg'
+PRODUCER = 'bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjNUTS14U1BlZ1ZqT2paZTREdXBoSiJ9.eyJpc3MiOiJodHRwczovL2ZzbmQtYmF0ZXMuZXUuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVmZjU3M2M3ZmE5ZTM5MDA2ZmI3Y2I1NSIsImF1ZCI6ImNhc3RpbmdBZ2VuY3lBUEkiLCJpYXQiOjE2MTI3NzkyMzQsImV4cCI6MTYxMjc4NjQzNCwiYXpwIjoid3NjUW1PTzVta1A5dWFubVdrV1lvY0h3MWtQWkNjY3EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvciIsImRlbGV0ZTptb3ZpZSIsImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIiwicGF0Y2g6YWN0b3IiLCJwYXRjaDptb3ZpZSIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.dWUx6TKTHa3WTYlFmquZAx0Ei7CkqhguNPJRLuAOKHpXjsHvgUEHac5sQ3P0VctLdr5LKDPML1UKlLiAcCsrRW4kAa85jWrcV6476Tw3Rd668ygIDuICzrlWnAvt7i9zDC1vfzhdqTaQEPLCP9gPwbDVxSpUllWl3LC3FnRyEhSdKPKy89Njypvj4yUZ34Qk4asvsr8H-_HrZs2FAQLExNmyCDz_8r1IdvFjtRYNwE0XH6FM3AOj9SLz1aLEaZJLt03EglXNum2413c3WcsHI-vvssx_2hTQ5t5ipVBeHU9OZVjwC7PRhbIOBB0EF32qTe4jLgJ2xCEoQWCGjLol3g'
 
 ## Permissions
 - get:actors -> Get access to the list of actors 
