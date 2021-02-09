@@ -1,4 +1,4 @@
-export DATABASE_URL='postgres://ylwgbmcavfqmhm:0e2be4ec5e161556c46b63ae396cd19170657b0b8d853e568027e258e5d5d5a1@ec2-34-239-33-57.compute-1.amazonaws.com:5432/ddnn9kadkhmaas'
+export DATABASE_URL='postgres://zztviccxuucfdj:8e7867b4623a924007f68b0a37f80677ff58b55b69e9c79f29eccf3fcab52f0a@ec2-34-239-33-57.compute-1.amazonaws.com:5432/d559tjusp6lglq'
 # export DATABASE_URL='postgres://postgres:test@localhost:5432/castingagency'
 export DATABASE_URL_TEST='postgres://postgres:test@localhost:5432/castingagencytest'
 export AUTH0_DOMAIN='fsnd-bates.eu.auth0.com'
