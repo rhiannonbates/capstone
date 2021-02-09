@@ -1,5 +1,5 @@
-# export DATABASE_URL='postgres://pjfdwszrktorka:e2884b5e7856ed39800908d73239adbb6ced2c01747c83591078af0dfed90ec5@ec2-54-225-190-241.compute-1.amazonaws.com:5432/d485puqc0kaedi'
-export DATABASE_URL='postgres://postgres:test@localhost:5432/castingagency'
+export DATABASE_URL='postgres://pjfdwszrktorka:e2884b5e7856ed39800908d73239adbb6ced2c01747c83591078af0dfed90ec5@ec2-54-225-190-241.compute-1.amazonaws.com:5432/d485puqc0kaedi'
+# export DATABASE_URL='postgres://postgres:test@localhost:5432/castingagency'
 export DATABASE_URL_TEST='postgres://postgres:test@localhost:5432/castingagencytest'
 export AUTH0_DOMAIN='fsnd-bates.eu.auth0.com'
 export ALGORITHMS=['RS256']
