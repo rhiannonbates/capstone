@@ -112,6 +112,7 @@ ALTER TABLE ONLY public.movies ALTER COLUMN id SET DEFAULT nextval('public.movie
 COPY public.actors (id, name, age, gender) FROM stdin;
 1	Robert Downey Jr	55	Male
 2	Chris Evans	39	Male
+3	Scarlett Johansson	36	Female
 \.
 
 
@@ -122,6 +123,7 @@ COPY public.actors (id, name, age, gender) FROM stdin;
 COPY public.movies (id, title, release_date) FROM stdin;
 1	The Avengers	26th April 2012
 2	Avengers End Game	25th April 2019
+3	Captain Marvel	8th March 2019
 \.
 
 
@@ -129,14 +131,14 @@ COPY public.movies (id, title, release_date) FROM stdin;
 -- Name: actors_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.actors_id_seq', 1, true);
+SELECT pg_catalog.setval('public.actors_id_seq', 3, true);
 
 
 --
 -- Name: movies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.movies_id_seq', 2, true);
+SELECT pg_catalog.setval('public.movies_id_seq', 3, true);
 
 
 --

@@ -21,11 +21,32 @@ def setup_db(app, database_path=database_path):
 
 
 '''
+Inherited class for common elements present in both models
+    Includes insert, delete and update methods
+'''
+
+
+class commonElementsAcrossTables(db.Model):
+    __abstract__ = True
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+    def update(self):
+        db.session.commit()
+
+
+'''
 Movies
 '''
 
 
-class Movies(db.Model):
+class Movies(commonElementsAcrossTables):
     __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True)
@@ -35,17 +56,6 @@ class Movies(db.Model):
     def __init__(self, title, release_date):
         self.title = title
         self.release_date = release_date
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
 
     def format(self):
         return {
@@ -60,7 +70,7 @@ Actors
 '''
 
 
-class Actors(db.Model):
+class Actors(commonElementsAcrossTables):
     __tablename__ = 'actors'
 
     id = Column(Integer, primary_key=True)
@@ -72,17 +82,6 @@ class Actors(db.Model):
         self.name = name
         self.age = age
         self.gender = gender
-
-    def insert(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def update(self):
-        db.session.commit()
-
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
 
     def format(self):
         return {

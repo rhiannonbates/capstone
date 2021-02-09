@@ -12,16 +12,13 @@ Follow instructions to install the latest version of python on your platform in 
 ## Virtual Environment
 We recommend using a virtual environment whenever using Python projects. To set up your virtual environment run:
 ```
-python -m virtualenv
+python -m virtualenv env
+source env/bin/activate
 ```
-For windows:
+Note for windows the env folder does not have a bin directory so use:
 ```
 source env/Scripts/activate
 ``` 
-For mac:
-```
-source env/bin/activate
-```
 
 ## Pip Dependencies
 Once you have your virtual environment set up, install the dependencies by running 

@@ -162,7 +162,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_update_actor(self):
         """ This test represents successfully updating an actor """
-        res = self.client().patch('/actors/1',
+        res = self.client().patch('/actors/2',
                                   headers={'AUTHORIZATION': TOKEN_DIRECTOR},
                                   json=self.update_actor)
         data = json.loads(res.data)
@@ -174,9 +174,9 @@ class CastingAgencyTestCase(unittest.TestCase):
     def test_422_actor_doesnt_exist_to_update(self):
         """ This test represents an actor that does not exist that is
         to be updated """
-        res = self.client().delete('/actors/1000',
-                                   headers={'AUTHORIZATION': TOKEN_DIRECTOR},
-                                   json=self.update_actor)
+        res = self.client().patch('/actors/1000',
+                                  headers={'AUTHORIZATION': TOKEN_DIRECTOR},
+                                  json=self.update_actor)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
@@ -188,7 +188,7 @@ class CastingAgencyTestCase(unittest.TestCase):
     '''
 
     def test_update_movie(self):
-        """ This test represents successfully updating a movie """
+        """ This test represents successfully updating an movie """
         res = self.client().patch('/movies/2',
                                   headers={'AUTHORIZATION': TOKEN_PRODUCER},
                                   json=self.update_movie)
@@ -201,9 +201,9 @@ class CastingAgencyTestCase(unittest.TestCase):
     def test_422_movie_doesnt_exist_to_update(self):
         """ This test represents if the movie does not exist that is to
         be updated """
-        res = self.client().delete('/movies/1000',
-                                   headers={'AUTHORIZATION': TOKEN_PRODUCER},
-                                   json=self.update_movie)
+        res = self.client().patch('/movies/1000',
+                                  headers={'AUTHORIZATION': TOKEN_PRODUCER},
+                                  json=self.update_movie)
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
@@ -216,7 +216,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_delete_actor(self):
         """ This test represents successfully deleting an actor """
-        res = self.client().delete('/actors/2',
+        res = self.client().delete('/actors/3',
                                    headers={'AUTHORIZATION': TOKEN_PRODUCER})
         data = json.loads(res.data)
 
@@ -241,7 +241,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_delete_movie(self):
         """ This test represents successfully deleting a movie """
-        res = self.client().delete('/movies/2',
+        res = self.client().delete('/movies/3',
                                    headers={'AUTHORIZATION': TOKEN_PRODUCER})
         data = json.loads(res.data)
 
