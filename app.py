@@ -46,7 +46,7 @@ def create_app(test_config=None):
         Get initial page to ensure the api is working
     '''
 
-    @app.route('/')
+    @app.route('/', methods=['GET'])
     def main():
         return jsonify({'message': 'Welcome to Casting Agency API'})
 
